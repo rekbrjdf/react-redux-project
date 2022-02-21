@@ -3,10 +3,9 @@ import { useDispatch } from 'react-redux';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 import {connect} from "react-redux"
-import {getArticleAction} from "../../ac"
+//import {getArticleAction} from "../../ac"
 
 function Cards({articles} ) {
-  debugger
 
   const dispatch = useDispatch();
   useEffect(() =>{
