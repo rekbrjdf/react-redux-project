@@ -1,9 +1,22 @@
-import React from 'react'; 
+import React,{useEffect}  from 'react'; 
+import { useDispatch } from 'react-redux';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
+import {connect} from "react-redux"
+import {getArticleAction} from "../../ac"
 
-function Cards( ) {
- 
+function Cards({articles} ) {
+  debugger
+
+  const dispatch = useDispatch();
+  useEffect(() =>{
+     setTimeout(() =>{
+       dispatch({
+        type: 'getArticles'
+    })
+     }, 3000)
+  },[])
+
 
   return(
   <>
@@ -53,6 +66,13 @@ function Cards( ) {
   )
 };
 
- 
+const MapStateToProps = (state) =>{
+  return{
+    articles: state.articles
+  }
+}
 
-export default Cards;
+
+
+
+export default  connect(MapStateToProps)(Cards);
