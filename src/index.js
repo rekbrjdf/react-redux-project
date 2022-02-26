@@ -5,10 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import ArticlesReduser from "../src/reducers/articlesReducer"
+import ArticlesReduser from "../src/reducers/articlesReducer";
+import showArticles from "../src/reducers/showArticles";
 import {combineReducers} from 'redux'
 
-const rootReducer = combineReducers({articles: ArticlesReduser})
+const rootReducer = combineReducers({articles: ArticlesReduser, showArticles})
 
 const store = createStore(rootReducer)
 
