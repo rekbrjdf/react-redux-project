@@ -7,17 +7,16 @@ import {connect} from "react-redux";
 import {toggleNews} from "../../ac";
 
 
-function Cards({articles}) {
-  
-console.log(articles, 'articles1111');
+function Cards({articles: {articles, isShowId}}) {
+   
   const dispatch = useDispatch();
-    // useEffect(() =>{
-  //    setTimeout(() =>{
-  //      dispatch({
-  //       type: 'getArticles'
-  //   })
-  //    }, 3000)
-  // },[])
+    useEffect(() =>{
+     setTimeout(() =>{
+       dispatch({
+        type: 'getArticles'
+    })
+     }, 3000)
+  },[])
 
  
 
@@ -38,7 +37,7 @@ console.log(articles, 'articles1111');
             {item.content}
           </Card.Text>
           <div onClick={() => dispatch(toggleNews(item.id))}>Стрелка  </div>
-          {item.isShow && 
+          {isShowId === item.id && 
             <Card.Text> 
               {item.text}
             </Card.Text>
@@ -59,7 +58,7 @@ console.log(articles, 'articles1111');
 
 const MapStateToProps = (state) => { 
   return {
-    articles: state.articles.state
+    articles: state.articles
   }
 } 
 

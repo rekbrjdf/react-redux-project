@@ -5,6 +5,6 @@
 // }
 
 export const toggleNews = id => ({
-    type: 'showArticles',
+    type: 'selectArticles',
     id
   })
